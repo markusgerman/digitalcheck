@@ -1,6 +1,5 @@
-# digitalcheck
+# www.digital-check.de
 Auswertungstool für www.digital-check.de 
-
 
 Sind Sie und Ihr Unternehmen fit?
 Digitale Transformation in Zeiten von COVID-19 
