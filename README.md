@@ -10,7 +10,7 @@ Noch vor einigen Monaten wurde nur zögerlich "der Sprung ins kalte Wasser" gewa
 Bestimmen Sie jetzt den digitalen Reifegrad Ihres Unternehmens und machen Sie den digitalcheck: digital-check.de
 Lust auf einen kurzen Teaser? 
 
-Hersteller www.myconsult.de 
+<b>Hersteller www.myconsult.de</b>
 
 Nachhaltige Lösungen für die zukunftsorientierte Weiterentwicklung von Unternehmen und Organisationen zu entwickeln und zu implementieren ist unsere Devise. Lediglich theoretische Konzepte zu entwickeln, die unsere Kunden dann allein umsetzen müssen, widerstrebt unserer Arbeitsweise. Wir verpflichten uns einem Projekt so lange, bis es reibungslos läuft. Wir sind an langfristigen Partnerschaften interessiert, nicht an Abhängigkeiten. myconsult ist eine deutschlandweit agierende Managementberatung mit Sitz in Salzkotten.
 
