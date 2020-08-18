@@ -24,7 +24,7 @@ def home(request):
     
     return render(request, 'home.html', context)
 
-def map_view(request):
+def teilnehmerauswertung_view(request):
 
 
-    return render(request, 'maps.html')
+    return render(request, 'teilnehmer.html')

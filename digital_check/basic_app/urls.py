@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='register'),
-    path('maps/', views.map_view, name='map')
+    path('teilnehmer/', views.teilnehmerauswertung_view, name='teilnehmer')
 ]

@@ -15,6 +15,8 @@
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
 
+    <!-- Charts.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
   </head>
   <body>
     <!--Bootstrap Navbar-->
@@ -48,13 +50,13 @@
      <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="/">Overview <span class="sr-only"></a></li>
             <li><a href="#">Reports</a></li>
             <li><a href="#">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
-            <li><a href="/maps">Auswertungskarte</a></li>
+            <li><a href="/teilnehmer">Teilnehmerauswertung</a></li>
             <li><a href="">Nav item again</a></li>
             <li><a href="">One more nav</a></li>
             <li><a href="">Another nav item</a></li>
@@ -77,6 +79,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <!--Custom JS-->
     <script src="{% static 'js/count-up.js' %}"></script>
+  <script src="{% static 'js/diagramm-example.js' %}"></script>
 
   </body>
 </html>
