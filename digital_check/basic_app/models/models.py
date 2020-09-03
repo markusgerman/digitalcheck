@@ -15,8 +15,8 @@ class FillDashboard():
 
     kleinunternehmen = "https://www.digital-check.de/umfrage/export/export_ku.php"
     kleinundmittelunternehmen = "https://www.digital-check.de/umfrage/export/export_kmu.php"
-    xmldirkmu = os.path.join(BASE_DIR, 'xml/kmu.xml')
-    xmldirku = os.path.join(BASE_DIR, 'xml/ku.xml')
+    xmldirkmu = os.path.join(BASE_DIR, 'xml\\kmu.xml')
+    xmldirku = os.path.join(BASE_DIR, 'xml\\ku.xml')
 
     #Holt sich die Anzahl an Umfrageteilnhmer
     def getallumfrageteilnehmer(self, ug):
@@ -42,12 +42,6 @@ class FillDashboard():
     def getumfrageteilnehmerlastweek(self):
         
         counter = 2
-
-        return counter
-
-    def getumfragengesamt(self):
-
-        
 
         return counter
 

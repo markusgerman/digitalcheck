@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import FillDashboard
+from ..models.models import FillDashboard
 
 # Create your views here.
 
@@ -26,5 +26,18 @@ def home(request):
 
 def map_view(request):
 
-
     return render(request, 'maps.html')
+
+
+from django.http import JsonResponse
+
+def test_view(request):
+    
+    data = {
+        'name': 'Vitorr',
+        'location': 'Finland',
+        'is_active': True,
+        'count': 28
+    }
+    
+    return JsonResponse(data)
