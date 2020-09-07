@@ -12,8 +12,16 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
+    <!--Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/analytics.css' %}">
 
   </head>
   <body>
@@ -48,9 +56,9 @@
      <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="/">Overview <span class="sr-only">(current)</span></a></li>
+            <li><a href="/">Overview <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
+            <li><a href="/analytics">Analytics</a></li>
             <li><a href="#">Export</a></li>
           </ul>
           <ul class="nav nav-sidebar">
@@ -67,6 +75,8 @@
           </ul>
         </div>
 
+    {% block scripts %}
+    {% endblock scripts %}
     <!--body will be rendered here-->
     {% block content %}
 
