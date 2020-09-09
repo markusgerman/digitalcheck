@@ -19,8 +19,8 @@ class XML():
     xmldirkmu = os.path.join(BASE_DIR, 'xml/kmu.xml')
     xmldirku = os.path.join(BASE_DIR, 'xml/ku.xml')
 
-    xmlkuenc = os.path.join(BASE_DIR, 'xml/dekmu.xml')
-    xmlkmuenc = os.path.join(BASE_DIR, 'xml/deku.xml')
+    xmlkmuenc = os.path.join(BASE_DIR, 'xml/dekmu.xml')
+    xmlkuenc = os.path.join(BASE_DIR, 'xml/deku.xml')
 
     def __init__(self):
 
@@ -43,4 +43,3 @@ class XML():
         f.close()
 
 x = XML()
-        
