@@ -9,6 +9,20 @@ class AnalyticsChartView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        
+        umfrageteilnehmer = self.FillUmfrageteilnehmer()
+
+        unternehmensgroese = self.FillUnternehmensgroese()
+    
+        context = {
+            'data' : umfrageteilnehmer,
+            'data2' : unternehmensgroese,
+        }
+
+        return context
+    
+    def FillUmfrageteilnehmer(self):
+
         data = FillAnalytics()
         ihk_ku = data.getihkkutteilnehmer()
 
@@ -16,7 +30,8 @@ class AnalyticsChartView(TemplateView):
 
         myconsult = data.getmyconsultteilnehmer()
 
-        context["data"] =  "{}, {}, {}".format(myconsult, ihk_ku, ihk_kmu)
+        return "{}, {}, {}".format(myconsult, ihk_ku, ihk_kmu)
 
-        return context
-    
+    def FillUnternehmensgroese(self):
+        
+        return 1

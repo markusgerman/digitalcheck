@@ -13,7 +13,7 @@ var myChart = new Chart(ctx, {
         labels: ['myconsult', 'IHK-KU', 'IHK-KMU'],
         datasets: [{
             label: '# Umfrageteilnehmer nach Institution',
-            data: [12, 19, 3],
+            data: [{{data}}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -29,7 +29,7 @@ var myChart = new Chart(ctx, {
     },
 
     options: {
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
         title: {
             display: true,
@@ -37,6 +37,40 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+var ctx2 = document.getElementById('layanan_subbagian').getContext('2d');
+
+var mlayanan_subbagian = new Chart(ctx2, {
+    type: 'pie',
+    data: {
+        labels: ['myconsult', 'IHK-KU', 'IHK-KMU'],
+        datasets: [{
+            label: '# Umfrageteilnehmer nach Institution',
+            data: [{{data}}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+            ],
+            borderWidth: 1
+        }]
+    },
+
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'Umfrageteilnehmer nach Institution',
+        }
+    }
+});
+
 });
 </script>
 
@@ -44,9 +78,22 @@ var myChart = new Chart(ctx, {
 
 {% block content %}
 
-<div class="container">
-<h1 class="page-header">Analytics</h1>
-    <canvas id="myChart" width="400" height="400">
+<div class="container-fluid">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
+          <div class="row placeholders">
+            <div class="col-xs-4">
+              <div style="width:500px;height:500px">
+            <canvas id="myChart"></canvas>
+            </div>
+            </div>
+            <div class="col-xs-4">
+              <div style="width:500px;height:500px">
+            <canvas id="layanan_subbagian" ></canvas>
+            </div>
+            </div>
+        </div>
+        {{data2}}
 </div>
 
 {% endblock content %}

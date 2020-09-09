@@ -15,5 +15,5 @@ def home(request):
 
 def map_view(request):
 
-    return render(request, 'maps.html', context)
+    return render(request, 'maps.html')
 
