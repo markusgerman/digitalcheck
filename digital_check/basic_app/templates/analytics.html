@@ -1,101 +1,36 @@
 {% extends 'layout.html' %}
 
-{% block scripts %}
-
-<script>
-
-$(document).ready(function(){
-var ctx = document.getElementById('myChart').getContext('2d');
-
-var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-        labels: ['myconsult', 'IHK-KU', 'IHK-KMU'],
-        datasets: [{
-            label: '# Umfrageteilnehmer nach Institution',
-            data: [{{umfrageteilnehmer}}],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-            ],
-            borderWidth: 1
-        }]
-    },
-
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        title: {
-            display: true,
-            text: 'Umfrageteilnehmer nach Institution',
-        }
-    }
-});
-
-var ctx2 = document.getElementById('barChart').getContext('2d');
-
-var mbarChart = new Chart(ctx2, {
-    type: 'bar',
-    data: {
-        labels: ['bis 19 Mitarbeiter*innen', '20-49 Mitarbeiter*innen', '50-249 Mitarbeiter*innen', 'ab 250 Mitarbeiter*innen'],
-        datasets: [{
-            label: '# Umfrageteilnehmer nach Institution',
-            data: [{{unternehmensgroese}}],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-            ],
-            borderWidth: 1
-        }]
-    },
-
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        title: {
-            display: true,
-            text: 'Umfrageteilnehmer nach Unternehmensgröße',
-        },
-        legend: {
-        display: false,
-    },
-    }
-});
-
-});
-</script>
-
-{% endblock scripts %}
-
 {% block content %}
 
 <div class="container-fluid">
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-          <div class="row placeholders">
-            <div class="col-xs-4">
-              <div style="width:500px;height:500px">
-            <canvas id="myChart"></canvas>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <h1 class="page-header">Analytics</h1>
+            <div class="container-fluid">
+                <h3>Allgemeine Auswertung</h3>
+                <div class="analytics pie">
+                    <canvas id="myChart" value="{{umfrageteilnehmer}}"></canvas>
+                </div>
+                <div class="analytics bar">
+                    <canvas id="barChart" value="{{unternehmensgroese}}"></canvas>
+                </div>
             </div>
+            <div class="container-fluid branche">
+                <h3>Auswertung nach Branche</h3 >
+                <div class="analytics dog">
+                    <canvas id="dogChart"></canvas>
+                </div>
+                <div class="analytics dog">
+                    <canvas id="dogChart2"></canvas>
+                </div>
+                <div class="analytics dog">
+                    <canvas id="dogChart3"></canvas>
+                </div>
             </div>
-            <div class="col-xs-4">
-              <div style="width:500px;height:500px">
-            <canvas id="barChart" ></canvas>
-            </div>
-            </div>
+                
         </div>
+        
+        
+    </div>
 </div>
 
 {% endblock content %}

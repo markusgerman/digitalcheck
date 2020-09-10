@@ -76,7 +76,4 @@ class FillAnalytics():
         return "{}, {}, {}, {}".format(ku , small, mittel, groes)
 
 
-
-
-
     

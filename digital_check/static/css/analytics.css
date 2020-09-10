@@ -1,0 +1,23 @@
+.analytics{
+    width:350px;
+    height:350px;
+}
+
+.pie{
+    background-color:#e5eaf5;
+    display:inline-block;
+}
+
+.bar{
+    background-color:#e5eaf5;
+    margin-left:2,5%;
+    display:inline-block;
+}
+
+.dog{
+    background-color:#e5eaf5;
+    margin-left:2,5%;
+    margin-top:2,5%;
+    display:inline-block;
+}
+
