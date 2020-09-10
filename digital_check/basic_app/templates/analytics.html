@@ -13,7 +13,7 @@ var myChart = new Chart(ctx, {
         labels: ['myconsult', 'IHK-KU', 'IHK-KMU'],
         datasets: [{
             label: '# Umfrageteilnehmer nach Institution',
-            data: [{{data}}],
+            data: [{{umfrageteilnehmer}}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -38,15 +38,15 @@ var myChart = new Chart(ctx, {
     }
 });
 
-var ctx2 = document.getElementById('layanan_subbagian').getContext('2d');
+var ctx2 = document.getElementById('barChart').getContext('2d');
 
-var mlayanan_subbagian = new Chart(ctx2, {
-    type: 'pie',
+var mbarChart = new Chart(ctx2, {
+    type: 'bar',
     data: {
-        labels: ['myconsult', 'IHK-KU', 'IHK-KMU'],
+        labels: ['bis 19 Mitarbeiter*innen', '20-49 Mitarbeiter*innen', '50-249 Mitarbeiter*innen', 'ab 250 Mitarbeiter*innen'],
         datasets: [{
             label: '# Umfrageteilnehmer nach Institution',
-            data: [{{data}}],
+            data: [{{unternehmensgroese}}],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -66,8 +66,11 @@ var mlayanan_subbagian = new Chart(ctx2, {
         maintainAspectRatio: false,
         title: {
             display: true,
-            text: 'Umfrageteilnehmer nach Institution',
-        }
+            text: 'Umfrageteilnehmer nach Unternehmensgröße',
+        },
+        legend: {
+        display: false,
+    },
     }
 });
 
@@ -89,11 +92,10 @@ var mlayanan_subbagian = new Chart(ctx2, {
             </div>
             <div class="col-xs-4">
               <div style="width:500px;height:500px">
-            <canvas id="layanan_subbagian" ></canvas>
+            <canvas id="barChart" ></canvas>
             </div>
             </div>
         </div>
-        {{data2}}
 </div>
 
 {% endblock content %}

@@ -51,5 +51,32 @@ class FillAnalytics():
         
         return counter
 
+    def getteilnehmernachgroese(self):
+
+        ku = self.getihkkutteilnehmer()
+
+        dataframe = Core()
+
+        df = dataframe.createdataframeKMU()
+
+        dfcolumn = df['D1']
+
+        small = 0
+        mittel = 0
+        groes = 0
+
+        for c in dfcolumn:
+            if c == " 20-49 Mitarbeiter*innen":
+                small += 1
+            if c == " 50-249 Mitarbeiter*innern":
+                mittel +=1
+            if c == " ab 250 Mitarbeiter*innern":
+                groes += 1
+
+        return "{}, {}, {}, {}".format(ku , small, mittel, groes)
+
+
+
+
 
     

@@ -15,8 +15,8 @@ class AnalyticsChartView(TemplateView):
         unternehmensgroese = self.FillUnternehmensgroese()
     
         context = {
-            'data' : umfrageteilnehmer,
-            'data2' : unternehmensgroese,
+            'umfrageteilnehmer' : umfrageteilnehmer,
+            'unternehmensgroese' : unternehmensgroese,
         }
 
         return context
@@ -34,4 +34,8 @@ class AnalyticsChartView(TemplateView):
 
     def FillUnternehmensgroese(self):
         
-        return 1
+        obj = FillAnalytics()
+
+        fill = obj.getteilnehmernachgroese()
+
+        return fill
