@@ -75,5 +75,7 @@ class FillAnalytics():
 
         return "{}, {}, {}, {}".format(ku , small, mittel, groes)
 
+    def getDienstleitungsbranche(self):
 
+        pass    
     

@@ -1,5 +1,6 @@
 var ctx5 = document.getElementById('dogChart').getContext('2d');
 
+
 var mbarChart = new Chart(ctx5, {
     type: 'doughnut',
     data: {

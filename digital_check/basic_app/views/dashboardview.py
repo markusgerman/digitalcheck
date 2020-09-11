@@ -9,8 +9,12 @@ from ..models.models import Core
 
 def home(request):
     counter = FillDashboard()
-    context = counter.filldashboardcounter()
-    
+    count = counter.filldashboardcounter()
+
+    month = counter.filldashboardumfragenmonat()
+
+    context = {**month, **count}
+   
     return render(request, 'home.html', context)
 
 def map_view(request):
