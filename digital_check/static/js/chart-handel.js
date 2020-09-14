@@ -1,12 +1,16 @@
 var ctx7 = document.getElementById('dogChart3').getContext('2d');
 
+var value = document.getElementById('dogChart3').getAttribute('value');
+
+
+
 var mbarChart = new Chart(ctx7, {
     type: 'doughnut',
     data: {
-        labels: ['bis 19 Mitarbeiter', '20-49 Mitarbeiter', '50-249 Mitarbeiter', 'ab 250 Mitarbeiter'],
+        labels: ["test", "test2", "test3"],
         datasets: [{
             label: '# Umfrageteilnehmer der Handelsbranche',
-            data: [12 ,23 , 23],
+            data: array,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

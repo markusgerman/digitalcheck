@@ -73,9 +73,38 @@ class FillAnalytics():
             if c == " ab 250 Mitarbeiter*innern":
                 groes += 1
 
-        return "{}, {}, {}, {}".format(ku , small, mittel, groes)
+        return "{}, {}, {}, {}".format(ku, small, mittel, groes)
 
-    def getDienstleitungsbranche(self):
+class FillBranche():
 
-        pass    
+    def gethandelsbrancheKMU(self):
+
+        dataframe = Core()
+
+        df = dataframe.createdataframeKMU()
+
+        dfcolumn = df[['D2','D4']]
+
+        dfcolumn = dfcolumn[df['D2'] == "Handel"]
+        
+        dups = dfcolumn.pivot_table(index = ["D4"], aggfunc='size')
+
+        liste = dups.tolist()
     
+        return liste
+
+    def gethandelsbrancheKU(self):
+
+        dataframe = Core()
+
+        df = dataframe.createdataframeKU()
+
+        dfcolumn = df[['D2','D4']]
+
+        dfcolumn = dfcolumn[df['D2'] == "Handel"]
+
+        dfcolumn = dfcolumn.pivot_table(index=['D4'], aggfunc='size')
+
+        dic = dfcolumn.to_dict()
+
+        return dic

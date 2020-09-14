@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from ..models.analyticmodels import FillAnalytics
+from ..models.analyticmodels import FillAnalytics, FillBranche
 from ..models.models import Core
 from django.views.generic import TemplateView
 
@@ -13,10 +13,13 @@ class AnalyticsChartView(TemplateView):
         umfrageteilnehmer = self.FillUmfrageteilnehmer()
 
         unternehmensgroese = self.FillUnternehmensgroese()
+
+        handelsbranche = self.FillDienstleistung()
     
         context = {
             'umfrageteilnehmer' : umfrageteilnehmer,
             'unternehmensgroese' : unternehmensgroese,
+            'handelsbranche' : handelsbranche
         }
 
         return context
@@ -39,3 +42,9 @@ class AnalyticsChartView(TemplateView):
         fill = obj.getteilnehmernachgroese()
 
         return fill
+
+    def FillDienstleistung(self):
+
+        obj = FillBranche()
+
+        return obj.gethandelsbrancheKU()
