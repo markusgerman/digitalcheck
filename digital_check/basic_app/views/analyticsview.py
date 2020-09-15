@@ -14,7 +14,7 @@ class AnalyticsChartView(TemplateView):
 
         unternehmensgroese = self.FillUnternehmensgroese()
 
-        handelsbranche = self.FillDienstleistung()
+        handelsbranche = self.FillHandelsBrancheValues()
     
         context = {
             'umfrageteilnehmer' : umfrageteilnehmer,
@@ -43,8 +43,10 @@ class AnalyticsChartView(TemplateView):
 
         return fill
 
-    def FillDienstleistung(self):
+    def FillHandelsBrancheValues(self):
 
         obj = FillBranche()
 
-        return obj.gethandelsbrancheKU()
+        value = obj.getbranche()
+
+        return value

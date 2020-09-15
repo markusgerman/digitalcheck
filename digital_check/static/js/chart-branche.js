@@ -1,13 +1,16 @@
 var ctx5 = document.getElementById('dogChart').getContext('2d');
 
+var value = document.getElementById('dogChart').getAttribute('value');
+
+var array = JSON.parse("[" + value + "]");
 
 var mbarChart = new Chart(ctx5, {
     type: 'doughnut',
     data: {
-        labels: ['bis 19 Mitarbeiter', '20-49 Mitarbeiter', '50-249 Mitarbeiter', 'ab 250 Mitarbeiter'],
+        labels: ["Dienstleistung" , "prod", "handel"],
         datasets: [{
-            label: '# Umfrageteilnehmer der Dienstleistungsbranche',
-            data: [12 ,23 , 23],
+            label: '# Umfrageteilnehmer nach Branche',
+            data: array,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -27,7 +30,7 @@ var mbarChart = new Chart(ctx5, {
         maintainAspectRatio: false,
         title: {
             display: true,
-            text: 'Umfrageteilnehmer der Dienstleistungsbranche',
+            text: 'Umfrageteilnehmer nach Branche',
         },
         legend: {
         display: false,

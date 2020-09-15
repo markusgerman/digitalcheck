@@ -3,6 +3,8 @@ from django.db import models
 from ..models.models import Core
 
 
+
+
 class FillAnalytics():
 
     def getihkkutteilnehmer(self):
@@ -75,36 +77,36 @@ class FillAnalytics():
 
         return "{}, {}, {}, {}".format(ku, small, mittel, groes)
 
-class FillBranche():
+class FillBranche():  
 
-    def gethandelsbrancheKMU(self):
+    def getbranche(self):
 
         dataframe = Core()
 
-        df = dataframe.createdataframeKMU()
-
-        dfcolumn = df[['D2','D4']]
-
-        dfcolumn = dfcolumn[df['D2'] == "Handel"]
+        ku = dataframe.createdataframeKU()
+        kmu = dataframe.createdataframeKMU()
         
-        dups = dfcolumn.pivot_table(index = ["D4"], aggfunc='size')
+        dienstleistung = 0
+        produ = 0
+        handel = 0
 
-        liste = dups.tolist()
-    
-        return liste
+        ku = ku['D2']
+        kmu = kmu['D2']
 
-    def gethandelsbrancheKU(self):
+        for c in ku:
+            if c == "Handel":
+                handel += 1
+            if c == "Produzierendes Gewerbe":
+                produ += 1
+            if c == "Dienstleistung ":
+                dienstleistung += 1
 
-        dataframe = Core()
+        for c in kmu:
+            if c == "Handel":
+                handel += 1
+            if c == "Produzierendes Gewerbe":
+                produ += 1
+            if c == "Dienstleistung ":
+                dienstleistung += 1
 
-        df = dataframe.createdataframeKU()
-
-        dfcolumn = df[['D2','D4']]
-
-        dfcolumn = dfcolumn[df['D2'] == "Handel"]
-
-        dfcolumn = dfcolumn.pivot_table(index=['D4'], aggfunc='size')
-
-        dic = dfcolumn.to_dict()
-
-        return dic
+        return "{}, {}, {}".format(dienstleistung, produ, handel)
