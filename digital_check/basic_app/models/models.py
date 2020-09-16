@@ -146,8 +146,21 @@ class Dataframe():
         return ku
 
 
-   
+class Liste():
 
+    def kmuliste(self):
+        Dataframe = Core()
+        df =  Dataframe.createdataframeKMU()
+        liste = list(df.columns.values)
+
+        return liste
+
+    def kuliste(self):
+        Dataframe = Core()
+        df =  Dataframe.createdataframeKU()
+        liste = list(df.columns.values)
+
+        return liste
 
 
 
