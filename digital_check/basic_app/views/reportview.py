@@ -13,10 +13,12 @@ class ReportView(TemplateView):
 
         grad = Digitalisierungsgrad()
 
-        grad = grad.berechneDigitalisierungsgrad()
-        
+        gradkmu = grad.berechneDigitalisierungsgrad("kmu")
+        gradku = grad.berechneDigitalisierungsgrad("ku")
+
         context = {
-            'grad' : grad,
+            'gradkmu' : gradkmu,
+            'gradku' : gradku,
         }
 
         return context

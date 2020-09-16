@@ -1,6 +1,6 @@
-var ctx10 = document.getElementById('reifegrad').getContext('2d');
+var ctx10 = document.getElementById('reifegradku').getContext('2d');
 
-var value = document.getElementById('reifegrad').getAttribute('value');
+var value = document.getElementById('reifegradku').getAttribute('value');
 
 var array = JSON.parse("[" + value + "]");
 

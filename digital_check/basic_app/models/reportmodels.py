@@ -29,19 +29,33 @@ class Digitalisierungsgrad():
 
         return df[header]
 
-    def berechneDigitalisierungsgrad(self):
+    def berechneDigitalisierungsgrad(self, ug):
 
-        strategie = self.berechneKonstruktGewicht("kmu", "Strategie")
-        struktur = self.berechneKonstruktGewicht("kmu", "Struktur")
-        OrganisationaleKompetenzen = self.berechneKonstruktGewicht("kmu", "OrganisationaleKompetenzen")
-        KulturWerte = self.berechneKonstruktGewicht("kmu", "KulturWerte")
-        Mitarbeiterinnen = self.berechneKonstruktGewicht("kmu", "Mitarbeiterinnen")
-        TechnologienITSysteme = self.berechneKonstruktGewicht("kmu", "TechnologienITSysteme")
-        LieferantenprozesseSupplychain = self.berechneKonstruktGewicht("kmu", "LieferantenprozesseSupplychain")
-        Kernprozesse = self.berechneKonstruktGewicht("kmu", "Kernprozesse")
-        Kundenbeziehungsprozesse = self.berechneKonstruktGewicht("kmu", "Kundenbeziehungsprozesse")
+        if ug == "kmu":
+            strategie = self.berechneKonstruktGewicht("kmu", "Strategie")
+            struktur = self.berechneKonstruktGewicht("kmu", "Struktur")
+            OrganisationaleKompetenzen = self.berechneKonstruktGewicht("kmu", "OrganisationaleKompetenzen")
+            KulturWerte = self.berechneKonstruktGewicht("kmu", "KulturWerte")
+            Mitarbeiterinnen = self.berechneKonstruktGewicht("kmu", "Mitarbeiterinnen")
+            TechnologienITSysteme = self.berechneKonstruktGewicht("kmu", "TechnologienITSysteme")
+            LieferantenprozesseSupplychain = self.berechneKonstruktGewicht("kmu", "LieferantenprozesseSupplychain")
+            Kernprozesse = self.berechneKonstruktGewicht("kmu", "Kernprozesse")
+            Kundenbeziehungsprozesse = self.berechneKonstruktGewicht("kmu", "Kundenbeziehungsprozesse")
 
-        frames = [strategie, struktur, OrganisationaleKompetenzen, KulturWerte, Mitarbeiterinnen, TechnologienITSysteme, LieferantenprozesseSupplychain, Kernprozesse, Kundenbeziehungsprozesse]
+            frames = [strategie, struktur, OrganisationaleKompetenzen, KulturWerte, Mitarbeiterinnen, TechnologienITSysteme, LieferantenprozesseSupplychain, Kernprozesse, Kundenbeziehungsprozesse]
+        
+        if ug =="ku":
+            strategie = self.berechneKonstruktGewicht("ku", "Strategie")
+            struktur = self.berechneKonstruktGewicht("ku", "Struktur")
+            KulturWerte = self.berechneKonstruktGewicht("ku", "KulturWerte")
+            Mitarbeiterinnen = self.berechneKonstruktGewicht("ku", "Mitarbeiterinnen")
+            TechnologienITSysteme = self.berechneKonstruktGewicht("ku", "TechnologienITSysteme")
+            LieferantenprozesseSupplychain = self.berechneKonstruktGewicht("ku", "LieferantenprozesseSupplychain")
+            Kernprozesse = self.berechneKonstruktGewicht("ku", "Kernprozesse")
+            Kundenbeziehungsprozesse = self.berechneKonstruktGewicht("ku", "Kundenbeziehungsprozesse")
+
+            frames = [strategie, struktur, KulturWerte, Mitarbeiterinnen, TechnologienITSysteme, LieferantenprozesseSupplychain, Kernprozesse, Kundenbeziehungsprozesse]
+
 
         result = pd.concat(frames, axis=1, join='inner')
 
@@ -56,7 +70,7 @@ class Digitalisierungsgrad():
         for i in result["reifegrad"]:
             if i < 55:
                 digbeginner += 1
-            if i > 55 and i < 75:
+            if i >= 55 and i < 75:
                 digmithaltender += 1
             if i > 74:
                 digvorreiter += 1
