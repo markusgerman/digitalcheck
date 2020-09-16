@@ -2,9 +2,6 @@ from django.db import models
 
 from ..models.models import Core
 
-
-
-
 class FillAnalytics():
 
     def getihkkutteilnehmer(self):
@@ -48,8 +45,10 @@ class FillAnalytics():
 
         counter = 0
         for c in surveyids:
-            if c == "942385":
+            if c == "942385" or "942385_Alt":
                 counter += 1
+
+        print(counter)
         
         return counter
 
