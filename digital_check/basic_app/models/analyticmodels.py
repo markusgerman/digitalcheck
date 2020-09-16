@@ -109,3 +109,19 @@ class FillBranche():
                 dienstleistung += 1
 
         return "{}, {}, {}".format(dienstleistung, produ, handel)
+
+    def getbranchedienstleistung(self):
+
+        dataframe = Core()
+
+        df = dataframe.createdataframeKU()
+
+        #df["D3"].to_excel("exceltest.xlsx")
+
+        values = 0
+
+        for i in df['D3']:
+            if i == "null":
+                values += 1
+
+        return values
