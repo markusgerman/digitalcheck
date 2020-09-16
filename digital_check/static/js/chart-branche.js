@@ -1,3 +1,4 @@
+
 var ctx5 = document.getElementById('dogChart').getContext('2d');
 
 var value = document.getElementById('dogChart').getAttribute('value');
@@ -37,3 +38,4 @@ var mbarChart = new Chart(ctx5, {
     },
     }
 });
+

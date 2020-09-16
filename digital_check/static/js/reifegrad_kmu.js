@@ -1,3 +1,4 @@
+
 var ctx10 = document.getElementById('reifegradkmu').getContext('2d');
 
 var value = document.getElementById('reifegradkmu').getAttribute('value');
@@ -9,7 +10,7 @@ var mbarChart = new Chart(ctx10, {
     data: {
         labels: ["Digitaler Beginner", "Digital Mithaltender", "Digitaler Vorreiter"],
         datasets: [{
-            label: '# Umfrageteilnehmer nach Branche',
+            label: '# Umfrageteilnehmer nach Digitalisierungsgrad KMU',
             data: array,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -30,7 +31,7 @@ var mbarChart = new Chart(ctx10, {
         maintainAspectRatio: false,
         title: {
             display: true,
-            text: 'Umfrageteilnehmer nach Digitalisierungsgrad',
+            text: 'Umfrageteilnehmer nach Digitalisierungsgrad (KMU)',
         },
         legend: {
         display: false,

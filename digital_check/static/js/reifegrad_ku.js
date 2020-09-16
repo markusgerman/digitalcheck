@@ -1,3 +1,4 @@
+
 var ctx10 = document.getElementById('reifegradku').getContext('2d');
 
 var value = document.getElementById('reifegradku').getAttribute('value');
@@ -30,7 +31,7 @@ var mbarChart = new Chart(ctx10, {
         maintainAspectRatio: false,
         title: {
             display: true,
-            text: 'Umfrageteilnehmer nach Digitalisierungsgrad',
+            text: 'Umfrageteilnehmer nach Digitalisierungsgrad (KU)',
         },
         legend: {
         display: false,

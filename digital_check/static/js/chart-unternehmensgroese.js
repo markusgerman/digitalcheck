@@ -1,3 +1,4 @@
+
 var ctx = document.getElementById('myChart').getContext('2d');
 
 var value = document.getElementById('myChart').getAttribute('value');
@@ -34,3 +35,4 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
