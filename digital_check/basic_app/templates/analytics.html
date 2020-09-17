@@ -14,13 +14,21 @@
                     <canvas id="barChart" value="{{unternehmensgroese}}"></canvas>
                 </div>
             </div>
-            <div class="container-fluid branche">
-                <h3>Auswertung nach Branche</h3 >
-                <div class="analytics dog">
-                    <canvas id="dogChart" value="{{handelsbranche}}"></canvas>
+            <div class="container-fluid">
+                <h3>Auswertung nach Branche</h3>
+                <div class="analytics pie">
+                    <canvas id="dogChart" value="{{branche}}"></canvas>
                 </div>
-                {{test}}
-                
+                <div class="analytics bar">
+                    <canvas id="dienstChart" value="{{dienstleistungen}}"></canvas>
+                </div>
+                <div class="analytics bar">
+                    <canvas id="produChart" value="{{handel}}"></canvas>
+                </div> 
+                <div class="analytics bar">
+                    <canvas id="handelChart" value="{{produ}}"></canvas>
+                </div>  
+                         
             </div>
         </div>
     </div>

@@ -8,22 +8,24 @@ class AnalyticsChartView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         
         umfrageteilnehmer = self.FillUmfrageteilnehmer()
 
         unternehmensgroese = self.FillUnternehmensgroese()
 
-        handelsbranche = self.FillHandelsBrancheValues()
+        branche = self.FillBrancheValues()
 
-        test = FillBranche()
-        test = test.getbranchedienstleistung()
+        dienstleistungen = self.FillBranche("dienstleistung")
+        handel= self.FillBranche("handel")
+        produgewerbe = self.FillBranche("produgewerbe")
     
         context = {
             'umfrageteilnehmer' : umfrageteilnehmer,
             'unternehmensgroese' : unternehmensgroese,
-            'handelsbranche' : handelsbranche,
-            'test':test
+            'branche' : branche,
+            'dienstleistungen' : dienstleistungen,
+            'handel' : handel,
+            'produ' : produgewerbe,
         }
 
         return context
@@ -47,10 +49,18 @@ class AnalyticsChartView(TemplateView):
 
         return fill
 
-    def FillHandelsBrancheValues(self):
+    def FillBrancheValues(self):
 
         obj = FillBranche()
 
         value = obj.getbranche()
+
+        return value
+
+    def FillBranche(self, branche):
+
+        obj = FillBranche()
+
+        value = obj.getbranchedienstleistung(branche)
 
         return value

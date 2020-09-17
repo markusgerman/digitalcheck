@@ -2,6 +2,8 @@ from django.db import models
 
 from ..models.models import Core
 
+import pandas as pd
+
 class FillAnalytics():
 
     def getihkkutteilnehmer(self):
@@ -47,8 +49,6 @@ class FillAnalytics():
         for c in surveyids:
             if c == "942385" or "942385_Alt":
                 counter += 1
-
-        print(counter)
         
         return counter
 
@@ -110,18 +110,33 @@ class FillBranche():
 
         return "{}, {}, {}".format(dienstleistung, produ, handel)
 
-    def getbranchedienstleistung(self):
+    def getbranchedienstleistung(self, branche):
 
         dataframe = Core()
 
         df = dataframe.createdataframeKU()
+        dfk = dataframe.createdataframeKMU()
 
-        #df["D3"].to_excel("exceltest.xlsx")
+        if branche == "dienstleistung": 
+            pivot = df.pivot_table(index=['D3'], aggfunc='size')
+            pivot2 = dfk.pivot_table(index=['D3'], aggfunc='size')
+            
+            # pvts = [pivot, pivot2]
 
-        values = 0
+            # all_data = pd.concat(pvts, axis=1)            
 
-        for i in df['D3']:
-            if i == "null":
-                values += 1
+            # all_data.reset_index(inplace=True)
 
-        return values
+
+            # all_data["sum"] = all_data[[0,1]].sum(axis=1)
+
+
+        if branche == "handel":
+            pivot = df.pivot_table(index=['D4'], aggfunc='size')
+        if branche == "produgewerbe":
+            pivot = df.pivot_table(index=['D5'], aggfunc='size')
+
+        names = pivot.to_json(force_ascii=False, orient='index')
+
+        return names
+
