@@ -121,15 +121,6 @@ class FillBranche():
             pivot = df.pivot_table(index=['D3'], aggfunc='size')
             pivot2 = dfk.pivot_table(index=['D3'], aggfunc='size')
             
-            # pvts = [pivot, pivot2]
-
-            # all_data = pd.concat(pvts, axis=1)            
-
-            # all_data.reset_index(inplace=True)
-
-
-            # all_data["sum"] = all_data[[0,1]].sum(axis=1)
-
 
         if branche == "handel":
             pivot = df.pivot_table(index=['D4'], aggfunc='size')
