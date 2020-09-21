@@ -41,7 +41,7 @@ var mbarChart = new Chart(ctx20, {
         maintainAspectRatio: false,
         title: {
             display: true,
-            text: 'Umfrageteilnehmer der Handelsbranche',
+            text: 'Umfrageteilnehmer Handel',
         },
         legend: {
         display: false,

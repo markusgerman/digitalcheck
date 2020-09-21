@@ -116,14 +116,10 @@ class FillBranche():
 
         df = dataframe.createdataframeKU()
         dfk = dataframe.createdataframeKMU()
-        print(dfk["D3"])
 
         if branche == "dienstleistung": 
             pivot = df.pivot_table(index=['D3'], aggfunc='size')
-
             pivot2 = dfk.pivot_table(index=['D3'], aggfunc='size')
-
-
         if branche == "handel":
             pivot = df.pivot_table(index=['D4'], aggfunc='size')
             pivot2 = dfk.pivot_table(index=['D4'], aggfunc='size')
