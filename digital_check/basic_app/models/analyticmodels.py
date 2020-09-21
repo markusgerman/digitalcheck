@@ -116,18 +116,31 @@ class FillBranche():
 
         df = dataframe.createdataframeKU()
         dfk = dataframe.createdataframeKMU()
+        print(dfk["D3"])
 
         if branche == "dienstleistung": 
             pivot = df.pivot_table(index=['D3'], aggfunc='size')
+
             pivot2 = dfk.pivot_table(index=['D3'], aggfunc='size')
-            
+
 
         if branche == "handel":
             pivot = df.pivot_table(index=['D4'], aggfunc='size')
+            pivot2 = dfk.pivot_table(index=['D4'], aggfunc='size')
         if branche == "produgewerbe":
             pivot = df.pivot_table(index=['D5'], aggfunc='size')
+            pivot2 = dfk.pivot_table(index=['D5'], aggfunc='size')
 
-        names = pivot.to_json(force_ascii=False, orient='index')
+
+        dfs = [pivot, pivot2]
+       
+        dfs = pd.concat(dfs, axis=1)
+
+        ende = dfs.append(dfs.sum().rename('Total')).assign(Total=lambda d: d.sum(1))
+
+        ende = ende["Total"]
+
+        names = ende.to_json(orient='index')
 
         return names
 

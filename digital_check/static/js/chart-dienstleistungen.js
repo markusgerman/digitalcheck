@@ -3,10 +3,19 @@ var ctx20 = document.getElementById('dienstChart').getContext('2d');
 
 var value = document.getElementById('dienstChart').getAttribute('value');
 
+
+
 x = JSON.parse(value)
+
+delete x.null;
+delete x.Total;
+
 var values = Object.values(x)
 
 var keys = Object.keys(x)
+
+
+
 
 for (var i = 0; i < x.length; i++){
     // look for the entry with a matching `code` value

@@ -4,6 +4,10 @@ var ctx20 = document.getElementById('handelChart').getContext('2d');
 var value = document.getElementById('handelChart').getAttribute('value');
 
 x = JSON.parse(value)
+
+delete x.null;
+delete x.Total;
+
 var values = Object.values(x)
 
 var keys = Object.keys(x)
@@ -37,7 +41,7 @@ var mbarChart = new Chart(ctx20, {
         maintainAspectRatio: false,
         title: {
             display: true,
-            text: 'Umfrageteilnehmer Dienstleistungsbranche',
+            text: 'Umfrageteilnehmer der Handelsbranche',
         },
         legend: {
         display: false,
