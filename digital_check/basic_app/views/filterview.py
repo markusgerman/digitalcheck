@@ -6,12 +6,6 @@ from ..models.models import Core
 from ..models.filtermodel import Query
 
 def filter_view(request, *args, **kwargs):
-
-    dataframe = Core()
-    df = dataframe.createdataframeKU()
-    dfkmu = dataframe.createdataframeKMU()
-
-
     stringlist = []
 
     if request.GET.get("checkbox1") == "on":
@@ -21,7 +15,7 @@ def filter_view(request, *args, **kwargs):
     if request.GET.get("checkbox3") == "on":
         stringlist.append('D2 == "Produzierendes Gewerbe"')
     if request.GET.get("checkbox4") == "on":
-        stringlist.append("") # der scheiß hat immer 19 MA
+        stringlist.append('SurveyID == "313385"')
     if request.GET.get("checkbox5") == "on":
         stringlist.append('D1 == " 20-49 Mitarbeiter*innen"')
     if request.GET.get("checkbox6") == "on":
@@ -31,7 +25,9 @@ def filter_view(request, *args, **kwargs):
 
     quer = Query()
 
-    quer.create(stringlist)
-    
+    value = quer.create(stringlist)
 
-    return render(request, 'filter.html')
+    context = {'value' : value}
+
+    
+    return render(request, 'filter.html', context)

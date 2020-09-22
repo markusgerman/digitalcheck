@@ -77,9 +77,7 @@ class Query():
     dfkmu = dataframe.createdataframeKMU()
 
     def create(self, liste):
-
         stringbuilder = ""
-
         counter = 0  #3
         for i in liste:
             counter += 1
@@ -94,9 +92,16 @@ class Query():
 
         try:
             x = self.dfkmu.query(stringbuilder)
-            x.to_excel("exceltest.xlsx")   
+            y = self.df.query(stringbuilder)
+
+            index  = x.index
+            indey = y.index
+            rows = len(index) + len(indey)
+
+            return rows
+            
         except:
-            return None
+            return ""
         
 
         
