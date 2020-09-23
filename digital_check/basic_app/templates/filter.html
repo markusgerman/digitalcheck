@@ -6,7 +6,24 @@
 <div class="container-fluid">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Filter</h1>
-            <form action="/filter/" method="get">
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Filter öffnen
+            </button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <form action="/filter/" method="get">
                 <input type="checkbox" name="checkbox1" id="checkbox1">Dienstleistung</p>
                 <input type="checkbox" name="checkbox2" id="checkbox2">Handel</p>
                 <input type="checkbox" name="checkbox3" id="checkbox3">Produzierendes Gewerbe</p><br>
@@ -14,10 +31,18 @@
                 <input type="checkbox" name="checkbox5" id="checkbox5">20-49 Mitarbeiter</p>
                 <input type="checkbox" name="checkbox6" id="checkbox6">50-249 Mitarbeiter</p>
                 <input type="checkbox" name="checkbox7" id="checkbox7">ab 250 Mitarbeiter</p>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-            {{value}}
+
+            {{value|safe}}
         </div>
 </div>
 

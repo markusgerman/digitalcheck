@@ -19,5 +19,15 @@ def home(request):
 
 def map_view(request):
 
-    return render(request, 'maps.html')
+    dataframe = Core()
+
+    df = dataframe.createdataframeKMU()
+
+    frame = df.to_html()
+
+    context = {
+        'frame' : frame,
+    }
+
+    return render(request, 'maps.html', context)
 
