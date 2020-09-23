@@ -23,7 +23,30 @@ def map_view(request):
 
     df = dataframe.createdataframeKMU()
 
-    frame = df.to_html()
+    antworten = {
+        'trifft nicht zu ': 0,
+        'trifft eher nicht zu ' : 1,
+        'trifft teilweise zu': 2, 
+        'trifft teilweise zu ': 2,
+        'trifft zu ': 3,
+        'trifft zu':3,
+    } 
+    
+    data_top = df.head()  
+    
+    for i in data_top:
+        try:
+            df['{}'.format(i)] = [antworten[item] for item in df['{}'.format(i)]]
+            
+        except:
+            continue
+
+
+    frame = df.iloc[:, 18:90]
+
+    frame = frame.corr()
+
+    frame = frame.to_html()
 
     context = {
         'frame' : frame,
