@@ -46,7 +46,7 @@ def map_view(request):
 
     frame = frame.corr()
 
-    frame = frame.to_html()
+    frame = frame.to_html(classes=["table-bordered", "table-striped", "table-hover"])
 
     context = {
         'frame' : frame,
